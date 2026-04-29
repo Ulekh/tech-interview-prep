@@ -1,35 +1,42 @@
 # Technical Interview Prep - Practice Environment
 
-Ten projekt został stworzony, aby pomóc Ci przygotować się do technicznych rozmów rekrutacyjnych w stylu "kata-machine".
+This project was created to help you prepare for technical recruiting interviews in the "kata-machine" style.
 
-## Struktura projektów
-Każde zadanie znajduje się w folderze `exercises/` i ma następującą strukturę:
-- `README.md`: Opis zadania i wymagania.
-- `SOLUTION.md`: Przykładowe rozwiązanie z omówieniem.
-- `index.ts` lub `Exercise.tsx`: Plik, w którym piszesz swój kod.
-- `index.test.ts` lub `Exercise.test.tsx`: Testy jednostkowe sprawdzające poprawność rozwiązania.
+## Project Structure
+Each task is located in the `exercises/` folder and has the following structure:
+- `README.md`: Task description and requirements.
+- `SOLUTION.md`: Example solution with discussion.
+- `index.ts` or `Exercise.tsx`: The file where you write your code.
+- `index.test.ts` or `Exercise.test.tsx`: Unit tests verifying the solution.
 
-## Jak ćwiczyć?
-1. Wybierz zadanie z folderu `exercises/`.
-2. Przeczytaj treść w `README.md`.
-3. Zaimplementuj rozwiązanie w pliku z kodem.
-4. Uruchom testy, aby sprawdzić poprawność:
+## How to Practice
+1. Choose a task from the `exercises/` folder.
+2. Read the instructions in `README.md`.
+3. Implement your solution in the code file.
+4. Run tests to verify correctness:
    ```bash
    npm test
    ```
-   Możesz też uruchomić testy dla konkretnego zadania:
+   You can also run tests for a specific task:
    ```bash
    npx vitest exercises/typescript/easy/two-sum/
    ```
-5. Po ukończeniu (lub jeśli utkniesz), zajrzyj do `SOLUTION.md`.
+5. After completion (or if you get stuck), check `SOLUTION.md`.
 
-## Dodawanie nowych zadań
-Po prostu stwórz nowy folder w `exercises/` zgodnie z kategorią (np. `exercises/typescript/medium/some-task/`) i skopiuj strukturę plików z istniejących przykładów.
+## Resetting Exercises
+If you want to clear your code and start over after some time, use the reset script:
+```bash
+npm run reset
+```
+This will restore all exercise files to their initial state (based on the last commit).
 
-## Inne języki programowania
-Projekt jest przygotowany głównie pod TS/React (Vitest), ale możesz łatwo dodać inne języki:
-1. Stwórz folder dla języka, np. `exercises/python/`.
-2. Dodaj zadanie z plikiem `.py` i testami (np. `pytest`).
-3. Uruchamiaj testy dedykowanym runnerem dla danego języka.
+## Adding New Tasks
+Simply create a new folder in `exercises/` according to its category (e.g., `exercises/typescript/medium/some-task/`) and copy the file structure from existing examples.
 
-W przyszłości planujemy dodać wsparcie dla Svelte oraz innych popularnych technologii.
+## Other Programming Languages
+The project is primarily set up for TS/React (Vitest), but you can easily add other languages:
+1. Create a folder for the language, e.g., `exercises/python/`.
+2. Add a task with a `.py` file and tests (e.g., `pytest`).
+3. Run tests with the dedicated runner for that language.
+
+We plan to add support for Svelte and other popular technologies in the future.
