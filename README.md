@@ -40,6 +40,14 @@ npm run reset
 ```
 This will restore all exercise files to their initial state (based on the last commit).
 
+## Playground
+For free-form experimentation, use the `playground/` directory:
+- **TypeScript**: `playground/typescript/index.ts`
+- **React**: `playground/react/index.tsx`
+- **Python**: `playground/python/main.py`
+
+You can run TypeScript/React playground code through Vitest or by adding an `index.test.ts` file in the playground folder. Python code can be run directly with `python3`.
+
 ## Adding New Tasks
 You can use the built-in generator to quickly create a new exercise:
 ```bash

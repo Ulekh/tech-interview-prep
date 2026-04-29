@@ -14,5 +14,5 @@
     "resolveJsonModule": true,
     "types": ["vitest/globals"],
   },
-  "include": ["exercises", "setupTests.ts", "types/**/*"],
+  "include": ["exercises", "playground", "setupTests.ts", "types/**/*"],
 }
