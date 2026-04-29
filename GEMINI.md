@@ -30,3 +30,8 @@ This file contains foundational instructions and conventions for the `tech-inter
 
 ## Language Policy
 - All documentation, READMEs, script messages, and code comments must be in **English**.
+
+## Python Support
+- **Tool**: Use [uv](https://docs.astral.sh/uv/) for environment and dependency management.
+- **Dependencies**: Dependencies are managed via `pyproject.toml`.
+- **Execution**: Use `uv run` or `npm run python:playground`.

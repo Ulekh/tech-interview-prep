@@ -44,7 +44,13 @@ This will restore all exercise files to their initial state (based on the last c
 For free-form experimentation, use the `playground/` directory:
 - **TypeScript**: `playground/typescript/index.ts`
 - **React**: `playground/react/index.tsx`
-- **Python**: `playground/python/main.py`
+- **Python**: `playground/python/main.py` (Run with `npm run python:playground`)
+
+### Python Environment
+The project uses [uv](https://docs.astral.sh/uv/) for Python management.
+- Run playground: `npm run python:playground`
+- Install packages: `uv add <package_name>`
+- Run any command: `uv run <command>`
 
 You can run TypeScript/React playground code through Vitest or by adding an `index.test.ts` file in the playground folder. Python code can be run directly with `python3`.
 

@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Build/Test
+dist/
+coverage/
+.vitest-results/

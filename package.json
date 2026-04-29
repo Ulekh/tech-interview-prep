@@ -10,7 +10,8 @@
     "test:watch": "vitest run --watch",
     "typecheck": "tsc --noEmit",
     "reset": "node scripts/reset.js",
-    "create": "node scripts/create-exercise.js"
+    "create": "node scripts/create-exercise.js",
+    "python:playground": "uv run playground/python/main.py"
   },
   "keywords": [],
   "author": "",
