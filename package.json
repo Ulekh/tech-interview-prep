@@ -9,7 +9,8 @@
     "test:run": "vitest run",
     "test:watch": "vitest run --watch",
     "typecheck": "tsc --noEmit",
-    "reset": "node scripts/reset.js"
+    "reset": "node scripts/reset.js",
+    "create": "node scripts/create-exercise.js"
   },
   "keywords": [],
   "author": "",

@@ -41,7 +41,17 @@ npm run reset
 This will restore all exercise files to their initial state (based on the last commit).
 
 ## Adding New Tasks
-Simply create a new folder in `exercises/` according to its category (e.g., `exercises/typescript/medium/some-task/`) and copy the file structure from existing examples.
+You can use the built-in generator to quickly create a new exercise:
+```bash
+npm run create <category> <name>
+```
+Example:
+```bash
+npm run create typescript my-new-task
+# or
+npm run create react my-ui-component
+```
+This will automatically create a folder with `README.md`, `SOLUTION.md`, a code file, and a test file with boilerplate code.
 
 ## Other Programming Languages
 The project is primarily set up for TS/React (Vitest), but you can easily add other languages:
