@@ -1,4 +1,4 @@
-import "./array-filter";
+import "./index";
 
 const isEven = (element: any, index: number) => element % 2 === 0;
 const isOdd = (element: any, index: number) => element % 2 === 1;
