@@ -13,14 +13,24 @@ Each task is located in the `exercises/` folder and has the following structure:
 1. Choose a task from the `exercises/` folder.
 2. Read the instructions in `README.md`.
 3. Implement your solution in the code file.
-4. Run tests to verify correctness:
-   ```bash
-   npm test
-   ```
-   You can also run tests for a specific task:
-   ```bash
-   npx vitest exercises/typescript/easy/two-sum/
-   ```
+4. Verify your solution using one of the following methods:
+
+### Running Tests
+- **All tests**: `npm test`
+- **Single task**: `npx vitest exercises/path/to/task`
+- **By test name**: `npx vitest -t "name of the test"`
+- **Watch mode**: `npm run test:watch` (automatically reruns on save)
+
+### Visual Interface (Recommended)
+Run the Vitest UI for a beautiful, interactive dashboard to manage and debug your tests:
+```bash
+npm run test:ui
+```
+
+### Pro Debugging Tips
+- **VS Code Extension**: Install the [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer) extension to run and debug tests directly from your editor sidebar.
+- **Focusing tests**: Use `it.only(...)` or `describe.only(...)` in your code to run only specific tests while working on a solution.
+
 5. After completion (or if you get stuck), check `SOLUTION.md`.
 
 ## Resetting Exercises
