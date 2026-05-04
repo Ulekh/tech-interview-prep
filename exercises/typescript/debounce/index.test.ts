@@ -7,23 +7,25 @@ describe('debounce', () => {
   });
 
   test('executes after duration', (done) => {
+    vi.useFakeTimers();
     let i = 0;
     const increment = debounce(() => {
       i++;
     }, 10);
 
-    expect(i).toBe(0);
     increment();
     expect(i).toBe(0);
 
-    setTimeout(() => {
-      expect(i).toBe(1);
-      done();
-    }, 20);
+    // Przesuń czas o 10ms
+    vi.advanceTimersByTime(10);
+
+    expect(i).toBe(1);
+    vi.useRealTimers();
   });
 
   describe('uses arguments', () => {
     test('called once', (done) => {
+      vi.useFakeTimers()
       let i = 21;
       const increment = debounce((a: number, b: number) => {
         i += a * b;
