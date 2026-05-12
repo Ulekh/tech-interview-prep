@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest",
+    "dev": "vite",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:watch": "vitest run --watch",

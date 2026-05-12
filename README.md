@@ -27,6 +27,13 @@ Run the Vitest UI for a beautiful, interactive dashboard to manage and debug you
 npm run test:ui
 ```
 
+### Interactive Preview (React)
+For React exercises, you can run a development server to see your component in the browser with live updates:
+```bash
+npm run dev
+```
+After starting the server, the CLI will provide a link to view your specific exercise (e.g., `http://localhost:5173/?category=react&name=my-component`).
+
 ### Pro Debugging Tips
 - **VS Code Extension**: Install the [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer) extension to run and debug tests directly from your editor sidebar.
 - **Focusing tests**: Use `it.only(...)` or `describe.only(...)` in your code to run only specific tests while working on a solution.
