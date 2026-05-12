@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "**/__solutions__": true,
+    "**/SOLUTION.md": false
+  }
+}

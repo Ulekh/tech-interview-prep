@@ -1,25 +1,21 @@
-export default function Tabs() {
+import React from 'react';
+
+type TabItem = {
+  value: string;
+  label: string;
+  panel: string;
+};
+
+type Props = {
+  defaultValue?: string;
+  items: TabItem[];
+};
+
+export default function Tabs(props: Props) {
+  // TODO: Implement the Tabs component
   return (
     <div>
-      <div>
-        <button>HTML</button>
-        <button>CSS</button>
-        <button>JavaScript</button>
-      </div>
-      <div>
-        <p>
-          The HyperText Markup Language or HTML is the standard markup language for documents
-          designed to be displayed in a web browser.
-        </p>
-        <p>
-          Cascading Style Sheets is a style sheet language used for describing the presentation of a
-          document written in a markup language such as HTML or XML.
-        </p>
-        <p>
-          JavaScript, often abbreviated as JS, is a programming language that is one of the core
-          technologies of the World Wide Web, alongside HTML and CSS.
-        </p>
-      </div>
+      {/* Implement tabs here */}
     </div>
   );
 }
