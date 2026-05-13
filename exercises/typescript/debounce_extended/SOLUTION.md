@@ -18,27 +18,20 @@ From there, two helpers keep the behavior consistent:
 
 That shared state is the main invariant in this question. The debounced wrapper itself only needs to refresh the saved call information and schedule `invoke()` after `wait` .
 
-```javascript
-/**
- * @typedef {((...args: Array<unknown>) => void) & {
- *   cancel: () => void,
- *   flush: () => void,
- * }} DebouncedFunction
- */
+```typescript
+interface DebouncedFunction extends Function {
+  cancel: () => void;
+  flush: () => void;
+}
 
-/**
- * @param {Function} func
- * @param {number} [wait=0]
- * @return {DebouncedFunction}
- */
-export default function debounce(func, wait = 0) {
-  let timeoutId = null;
-  let context = undefined;
-  let argsToInvoke = undefined;
+export default function debounce(func: Function, wait: number = 0): DebouncedFunction {
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  let context: any = undefined;
+  let argsToInvoke: Array<any> | undefined = undefined;
 
   function clearTimer() {
     clearTimeout(timeoutId);
-    timeoutId = null;
+    timeoutId = undefined;
   }
 
   function invoke() {
@@ -51,7 +44,7 @@ export default function debounce(func, wait = 0) {
     func.apply(context, argsToInvoke);
   }
 
-  function fn(...args) {
+  function fn(this: any, ...args: Array<any>) {
     clearTimer();
     // Keep only the latest call details for the trailing invocation.
     argsToInvoke = args;
