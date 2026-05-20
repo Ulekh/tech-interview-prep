@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+}
+
+.imageWrapper {
+  height: 400px;
+  width: min(80vw, 600px);
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
+
+  margin: 0 auto;
+}
+
+.image {
+  object-fit: contain;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}

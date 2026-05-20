@@ -1,7 +1,29 @@
-# contact-form
+# Contact form
 
-## Task
-Describe the problem here.
+## Requirements
 
-### Requirements:
-1. Requirement one.
+Building forms is a common task in front end. In this exercise, we will build a basic "Contact Us" form, commonly seen on marketing websites for visitors to ask questions or provide feedback.
+
+### Requirements
+
+- The form should contain the following elements:
+- Name field.
+- Email field.
+- Message field.
+- Since the message can be long, a `<textarea>` will be more suitable.
+- Submit button
+- Contains the text "Send".
+- Clicking on the submit button submits the form.
+
+- The form and submission should be implemented entirely in HTML. Do not use any JavaScript or framework-specific features for this question.
+
+- There is no need to do any client-side validation on the fields. Validation will be done on the server side.
+
+### Submission API
+
+Upon submission, `POST` the form data to `https://questions.greatfrontend.com/api/questions/contact-form` with the following fields in the request body: `name` , `email` , `message` .
+
+If all the form fields are correctly filled in, you will see an alert containing a success message. Congratulations!
+
+> Notes
+> You do not need JavaScript for this question; the focus is on HTML form validation and submission.
