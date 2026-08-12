@@ -14,13 +14,15 @@ React remains the source of truth for the previous state. The mediator can trans
 
 The returned setter still needs to behave like React's setter. That means updater functions cannot be evaluated eagerly from a stale `state` variable. They have to run inside the functional `setMediatedState()` call, where React provides the latest previous state:
 
-```
-function resolveStateAction(action, previousState) {  return action instanceof Function ? action(previousState) : action;}
+```ts
+function resolveStateAction(action, previousState) {
+  return action instanceof Function ? action(previousState) : action;
+}
 ```
 
 The first mediator is stored in a ref:
 
-```
+```ts
 const mediatorFn = useRef(mediator);
 ```
 
@@ -28,8 +30,10 @@ This matches the requirement that later `mediator` argument changes should not r
 
 After resolving the requested update into `newState`, the code chooses the mediator mode by arity. A mediator whose `length` is not `2` is treated as a pure transformer and its return value becomes the next state:
 
-```
-if (mediator.length !== 2) {  return mediator(newState);}
+```ts
+if (mediator.length !== 2) {
+  return mediator(newState);
+}
 ```
 
 For the dispatch-taking form, the mediator receives `(newState, dispatch)`. If it dispatches immediately, React is already computing the next state, so the hook accumulates those synchronous dispatches into a local `nextState` and returns it. If the mediator dispatches later, the custom `dispatch` falls back to the real React setter.
