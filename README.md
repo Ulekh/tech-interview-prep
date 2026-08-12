@@ -6,16 +6,17 @@ This project was created to help you prepare for technical recruiting interviews
 Each task is located in the `exercises/` folder and has the following structure:
 - `README.md`: Task description and requirements.
 - `SOLUTION.md`: Example solution with discussion.
-- `index.ts` or `Exercise.tsx`: The file where you write your code.
-- `index.test.ts` or `Exercise.test.tsx`: Unit tests verifying the solution.
+- `index.ts` / `Exercise.tsx`: The file where you write your code (not applicable for System Design).
+- `index.test.ts` / `Exercise.test.tsx`: Unit tests verifying the solution (not applicable for System Design).
+- `assets/`: Folder for diagrams and architectural schemas (System Design only).
 
 ## How to Practice
-1. Choose a task from the `exercises/` folder.
+1. Choose a task from the `exercises/` folder (e.g., `react`, `typescript`, or `system-design`).
 2. Read the instructions in `README.md`.
-3. Implement your solution in the code file.
-4. Verify your solution using one of the following methods:
+3. For coding tasks: Implement your solution in the code file and verify with tests.
+4. For System Design: Document your architecture in `SOLUTION.md` and add diagrams to `assets/`.
+5. After completion (or if you get stuck), check `SOLUTION.md`.
 
-### Running Tests
 - **All tests**: `npm test`
 - **Single task**: `npx vitest exercises/path/to/task`
 - **By test name**: `npx vitest -t "name of the test"`
