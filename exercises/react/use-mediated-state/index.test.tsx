@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react';
 
-import useMediatedState from './use-mediated-state';
+import useMediatedState from './index';
 import { useState } from 'react';
 
 describe('useMediatedState', () => {

@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
-import './style.css';
+import { Dispatch, SetStateAction } from 'react';
 
-export const UseMediatedState = () => {
-  const [count, setCount] = useState(0);
+interface StateMediator<S = unknown> {
+  (newState: S): S;
+  (newState: S, dispatch: Dispatch<SetStateAction<S>>): void;
+}
 
-  return (
-    <div className="use-mediated-state-container">
-      <h1>UseMediatedState</h1>
-      <p>This is your new React exercise.</p>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default UseMediatedState;
+export default function useMediatedState<S = unknown>(
+  mediator: StateMediator<S>,
+  initialState?: S
+): [S, Dispatch<SetStateAction<S>>] {
+  throw 'Not implemented';
+}
