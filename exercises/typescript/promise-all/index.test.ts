@@ -1,4 +1,4 @@
-import './index';
+import promiseAll from './index';
 
 describe('promiseAll', () => {
   test('returns promise', () => {
