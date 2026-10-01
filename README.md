@@ -6,12 +6,14 @@ This project was created to help you prepare for technical recruiting interviews
 Each task is located in the `exercises/` folder and has the following structure:
 - `README.md`: Task description and requirements.
 - `SOLUTION.md`: Example solution with discussion.
-- `index.ts` / `Exercise.tsx`: The file where you write your code (not applicable for System Design).
-- `index.test.ts` / `Exercise.test.tsx`: Unit tests verifying the solution (not applicable for System Design).
+- `index.ts` / `index.tsx`: The file where you write your code (not applicable for System Design).
+- `index.html`: HTML markup/template for DOM exercises.
+- `style.css`: Styles for DOM and React exercises.
+- `index.test.ts` / `index.test.tsx`: Unit tests verifying the solution (not applicable for System Design).
 - `assets/`: Folder for diagrams and architectural schemas (System Design only).
 
 ## How to Practice
-1. Choose a task from the `exercises/` folder (e.g., `react`, `typescript`, or `system-design`).
+1. Choose a task from the `exercises/` folder (e.g., `react`, `dom`, `typescript`, or `system-design`).
 2. Read the instructions in `README.md`.
 3. For coding tasks: Implement your solution in the code file and verify with tests.
 4. For System Design: Document your architecture in `SOLUTION.md` and add diagrams to `assets/`.
@@ -28,12 +30,12 @@ Run the Vitest UI for a beautiful, interactive dashboard to manage and debug you
 npm run test:ui
 ```
 
-### Interactive Preview (React)
-For React exercises, you can run a development server to see your component in the browser with live updates:
+### Interactive Preview (React & DOM)
+For React and DOM exercises, you can run a development server to see your component/widget in the browser with live updates:
 ```bash
 npm run dev
 ```
-After starting the server, the CLI will provide a link to view your specific exercise (e.g., `http://localhost:5173/?category=react&name=my-component`).
+After starting the server, the CLI will provide a link to view your specific exercise (e.g., `http://localhost:5173/?category=react&name=my-component` or `http://localhost:5173/?category=dom&name=my-dom-widget`).
 
 ### Pro Debugging Tips
 - **VS Code Extension**: Install the [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer) extension to run and debug tests directly from your editor sidebar.
@@ -72,6 +74,8 @@ Example:
 npm run create typescript my-new-task
 # or
 npm run create react my-ui-component
+# or
+npm run create dom my-dom-widget
 ```
 This will automatically create a folder with `README.md`, `SOLUTION.md`, a code file, and a test file with boilerplate code.
 
@@ -82,3 +86,6 @@ The project is primarily set up for TS/React (Vitest), but you can easily add ot
 3. Run tests with the dedicated runner for that language.
 
 We plan to add support for Svelte and other popular technologies in the future.
+
+## Architecture & How It Works
+For an in-depth technical explanation of how HTML/TS/CSS modules, the development preview runner, and Hot Module Replacement (HMR) function under the hood, see [HOW_IT_WORKS.md](HOW_IT_WORKS.md).

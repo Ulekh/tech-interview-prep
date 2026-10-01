@@ -4,9 +4,10 @@ This file contains foundational instructions and conventions for the `tech-inter
 
 ## Architecture & Organization
 - **Exercise Root**: All learning material must reside in the `exercises/` directory.
-- **Flat Structure**: Exercises are categorized by technology (e.g., `react`, `typescript`, `system-design`) but should not be nested deeper than `exercises/<technology>/<exercise-name>`.
+- **Flat Structure**: Exercises are categorized by technology (e.g., `react`, `typescript`, `system-design`, `dom`) but should not be nested deeper than `exercises/<technology>/<exercise-name>`.
 - **File Conventions**: 
   - For `react` and `typescript`: Every folder MUST contain `README.md`, `SOLUTION.md`, `index.ts`/`index.tsx`, and `index.test.ts`/`index.test.tsx`.
+  - For `dom`: Every folder MUST contain `README.md`, `SOLUTION.md`, `index.html`, `index.ts`, `index.test.ts`, and `style.css`.
   - For `system-design`: Every folder MUST contain `README.md`, `SOLUTION.md`, and an `assets/` directory for diagrams.
 
 ## Development Workflows

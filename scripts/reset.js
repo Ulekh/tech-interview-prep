@@ -10,9 +10,9 @@ try {
   // Get the list of modified files in the exercises folder
   const status = execSync('git ls-files -m exercises/').toString().split('\n').filter(Boolean);
 
-  // Filter only code files (ts, tsx), excluding tests
+  // Filter only code files (ts, tsx, html), excluding tests
   const filesToReset = status.filter(file => {
-    const isCode = file.endsWith('.ts') || file.endsWith('.tsx');
+    const isCode = file.endsWith('.ts') || file.endsWith('.tsx') || file.endsWith('.html');
     const isTest = file.includes('.test.');
     const isDoc = file.endsWith('.md');
     return isCode && !isTest && !isDoc;
