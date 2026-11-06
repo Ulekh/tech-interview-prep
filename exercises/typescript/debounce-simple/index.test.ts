@@ -1,13 +1,20 @@
 import debounce from './index';
 
 describe('debounce', () => {
-  test('can be initialized', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('can be initialized', () => {
     const increment = debounce(() => {}, 50);
     expect(increment).toBeTruthy();
   });
 
-  test('executes after duration', (done) => {
-    vi.useFakeTimers();
+  it('executes after duration', () => {
     let i = 0;
     const increment = debounce(() => {
       i++;
@@ -19,11 +26,10 @@ describe('debounce', () => {
 
     vi.advanceTimersByTime(20);
     expect(i).toBe(1);
-    vi.useRealTimers();
   });
 
   describe('uses arguments', () => {
-    test('called once', (done) => {
+    it('called once', () => {
       let i = 21;
       const increment = debounce((a: number, b: number) => {
         i += a * b;
@@ -33,13 +39,11 @@ describe('debounce', () => {
       increment(3, 7);
       expect(i).toBe(21);
 
-      setTimeout(() => {
-        expect(i).toBe(42);
-        done();
-      }, 20);
+      vi.advanceTimersByTime(20);
+      expect(i).toBe(42);
     });
 
-    test('uses arguments of latest invocation', (done) => {
+    it('uses arguments of latest invocation', () => {
       let i = 21;
       const increment = debounce((a: number, b: number) => {
         i += a * b;
@@ -50,14 +54,12 @@ describe('debounce', () => {
       increment(4, 5);
       expect(i).toBe(21);
 
-      setTimeout(() => {
-        expect(i).toBe(41);
-        done();
-      }, 20);
+      vi.advanceTimersByTime(20);
+      expect(i).toBe(41);
     });
   });
 
-  test('execute once even after calling it multiple times', (done) => {
+  it('execute once even after calling it multiple times', () => {
     let i = 0;
     const increment = debounce(() => {
       i++;
@@ -71,17 +73,14 @@ describe('debounce', () => {
     expect(i).toBe(0);
 
     // Should not fire yet.
-    setTimeout(() => {
-      expect(i).toBe(0);
-    }, 10);
+    vi.advanceTimersByTime(10);
+    expect(i).toBe(0);
 
-    setTimeout(() => {
-      expect(i).toBe(1);
-      done();
-    }, 30);
+    vi.advanceTimersByTime(20);
+    expect(i).toBe(1);
   });
 
-  test('duration extended if called again during window', (done) => {
+  it('duration extended if called again during window', () => {
     let i = 0;
     const increment = debounce(() => {
       i++;
@@ -93,25 +92,20 @@ describe('debounce', () => {
     expect(i).toBe(0);
 
     // Should not fire yet.
-    setTimeout(() => {
-      expect(i).toBe(0);
-      increment();
-      expect(i).toBe(0);
-    }, 50);
+    vi.advanceTimersByTime(50);
+    expect(i).toBe(0);
+    increment();
+    expect(i).toBe(0);
 
-    setTimeout(() => {
-      // Still 0 because we fired again at t=50, increment will only happen at t=150
-      expect(i).toBe(0);
-    }, 125);
+    // t=125: still 0 because we called again at t=50, so it fires at t=150.
+    vi.advanceTimersByTime(75);
+    expect(i).toBe(0);
 
-    setTimeout(() => {
-      expect(i).toBe(1);
-      done();
-      // Add a longer delay because the browser timer is unreliable.
-    }, 1500);
+    vi.advanceTimersByTime(25);
+    expect(i).toBe(1);
   });
 
-  test('callbacks can access `this`', (done) => {
+  it('callbacks can access `this`', () => {
     const increment = debounce(function (this: any, delta: number) {
       this.val += delta;
     }, 10);
@@ -125,9 +119,7 @@ describe('debounce', () => {
     obj.increment(3);
     expect(obj.val).toBe(2);
 
-    setTimeout(() => {
-      expect(obj.val).toBe(5);
-      done();
-    }, 20);
+    vi.advanceTimersByTime(20);
+    expect(obj.val).toBe(5);
   });
 });

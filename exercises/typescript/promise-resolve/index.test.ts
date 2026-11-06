@@ -43,12 +43,11 @@ describe('promiseResolve', () => {
       return expect(p).rejects.toBe(42);
     });
 
-    test('use with then', (done) => {
+    test('use with then', async () => {
       expect.assertions(1);
       const p = promiseResolve(new Promise((resolve) => resolve(42)));
-      p.then((result) => {
+      await p.then((result) => {
         expect(result).toBe(42);
-        done();
       });
     });
   });
@@ -101,16 +100,15 @@ describe('promiseResolve', () => {
       return expect(p).rejects.toBe(42);
     });
 
-    test('use with then', (done) => {
+    test('use with then', async () => {
       expect.assertions(1);
       const p = promiseResolve({
         then(resolve: Function) {
           resolve(42);
         },
       });
-      p.then((result) => {
+      await p.then((result) => {
         expect(result).toBe(42);
-        done();
       });
     });
 

@@ -1,6 +1,10 @@
 import throttle from './index';
 
 describe('throttle', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   test('can be initialized', () => {
     const increment = throttle(() => {}, 50);
     expect(increment).toBeInstanceOf(Function);
@@ -30,7 +34,8 @@ describe('throttle', () => {
     expect(i).toBe(1);
   });
 
-  test('throttles delayed invocations', (done) => {
+  test('throttles delayed invocations', () => {
+    vi.useFakeTimers();
     let i = 0;
     const increment = throttle(() => {
       i++;
@@ -40,15 +45,12 @@ describe('throttle', () => {
     increment();
     expect(i).toBe(1);
 
-    setTimeout(() => {
-      increment();
-      expect(i).toBe(1);
-    }, 25);
+    vi.advanceTimersByTime(25);
+    increment();
+    expect(i).toBe(1);
 
-    setTimeout(() => {
-      increment();
-      expect(i).toBe(1);
-      done();
-    }, 50);
+    vi.advanceTimersByTime(25);
+    increment();
+    expect(i).toBe(1);
   });
 });

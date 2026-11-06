@@ -24,14 +24,13 @@ describe('promiseWithResolvers', () => {
       return expect(promise).rejects.toBe(42);
     });
 
-    test('then', (done) => {
+    test('then', async () => {
       expect.assertions(1);
       const { promise, resolve } = promiseWithResolvers();
       resolve(42);
 
-      promise.then((result) => {
+      await promise.then((result) => {
         expect(result).toBe(42);
-        done();
       });
     });
   });
